@@ -8,6 +8,7 @@ public class Animal {
     protected int age;
     protected String habitat;
     protected boolean alive;
+    protected boolean hungry;
 
 
 
@@ -20,9 +21,20 @@ public class Animal {
         this.alive = alive;
     }
 
+
+    public Animal(String name, String species, int age, String habitat, boolean alive, boolean hungry) {
+        this.name = name;
+        this.species = species;
+        this.age = age;
+        this.habitat = habitat;
+        this.alive = alive;
+        this.hungry = hungry;
+    }
     // one static var that serves all instances
     //is a Q or A about a whole class or obj, not any specific ones
     //global variable, for that classhaave diff banana obj, will update number of obj even if delete clas??
+
+
 
     public Animal() {
         this.name = "Pauly";
@@ -39,7 +51,13 @@ public class Animal {
         return "Our animal " + this.name + " is currently alive?: " + alive;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getAge() {
         return this.age;
@@ -55,6 +73,17 @@ public class Animal {
     //isHungry vs. getHungry
 
 
+    public boolean isHungry() {
+        return hungry;
+    }
+
+    public void setHungry(boolean hungry) {
+        this.hungry = hungry;
+    }
+
+    public void feed(){
+        this.hungry = true;
+    }
 
     public boolean isAlive(){
         return alive;
