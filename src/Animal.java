@@ -36,6 +36,7 @@ public class Animal {
 
 
 
+
     public Animal() {
         this.name = "Pauly";
         this.species = "Turtle";
@@ -59,9 +60,19 @@ public class Animal {
         this.name = name;
     }
 
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
     public int getAge() {
         return this.age;
     }
+
+    public int setAge(int age){return this.age;}
     //parameter and default constructors
 
 
@@ -93,6 +104,18 @@ public class Animal {
 
     public String makeNoise(){
         return "Mooo";
+    }
+    public String reaction(){
+        String s;
+        int x = (int)((Math.random())*3);
+        if (x == 1){ s = "ଲ(ⓛ ω ⓛ)ଲ";}   //❀.❀  ˶⍤⃝˶  ꧁꧂
+        else if (x == 0){ s = "⪩(ᐢᗜᐢ)⪨";}
+        else{ s = "(ꐦ･`▱´･)";}
+        return s;
+    }
+
+    public String feelingsNow(){
+        return "Current expression of " + this.name + ":\t" + reaction();
     }
 
 

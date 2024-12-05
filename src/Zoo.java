@@ -3,7 +3,6 @@ import java.util.LinkedList;
 
 public class Zoo {
     public static void main(String[] args) {
-        //System.out.println("Hello world!");
         //store animals & employees
         //arrays fix size, always &reserve space
         //linkedlist reserve node space, then point to next node
@@ -23,6 +22,8 @@ public class Zoo {
         LinkedList<Animal> animals = new LinkedList<Animal>();
         Animal foot = new Animal("Foot", "Penguin-Rhinoceros", 5, " Rainforest", false);
         animals.add(foot);
+        System.out.println(foot.feelingsNow());
+        //System.out.println("ଲ(ⓛ ω ⓛ)ଲ");
 
         //public String schedule(<Employee> employed, animals){
             String line1 = "6:00am  |" + employed.get(0).getName() + " \t|" + animals.get(0).getName();
