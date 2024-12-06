@@ -14,12 +14,14 @@ public class Zoo {
         //zoo show mess w/ both animals and employees
         //store animal & employee, keep track of them. (need methos or animal from zoo subclass idk context)
 
-        LinkedList<Employee> employed = new LinkedList<Employee>();
+        static LinkedList<Employee> employed = new LinkedList<Employee>();   //employed
+        static LinkedList<Animal> animals = new LinkedList<Animal>();
+
         Employee bob = new Employee("Bob", 20000, "Duckkeeper");
         employed.add(bob);
         System.out.println(employed.get(0).getName());
 
-        LinkedList<Animal> animals = new LinkedList<Animal>();
+
         Animal foot = new Animal("Foot", "Penguin-Rhinoceros", 5, " Rainforest", false);
         animals.add(foot);
         System.out.println(foot.feelingsNow());
@@ -29,6 +31,15 @@ public class Zoo {
             String line1 = "6:00am  |" + employed.get(0).getName() + " \t|" + animals.get(0).getName();
             System.out.println(line1);
         //}
+
+        public static void hire(Employee employee){
+            empd.add(employee);
+        }
+
+        public void intakeAnimal(Animal animal){
+            animals.add(animal);
+        }
+
 
     }
 }
