@@ -107,9 +107,11 @@ public class Animal {
     }
     public String reaction(){
         String s;
-        int x = (int)((Math.random())*3);
+        int x = (int)((Math.random())*5);
         if (x == 1){ s = "ଲ(ⓛ ω ⓛ)ଲ";}   //❀.❀  ˶⍤⃝˶  ꧁꧂
         else if (x == 0){ s = "⪩(ᐢᗜᐢ)⪨";}
+        else if (x == 2){ s = "(･ - ･)??";}
+        else if (x == 3){ s = "(o - ⃝  )" ;}
         else{ s = "(ꐦ･`▱´･)";}
         return s;
     }
