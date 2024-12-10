@@ -37,6 +37,34 @@ public class Zoo {
         return emp;
     }
 
+    public static void employedNames(){
+        for (Employee name:emp){
+            System.out.print(name.getName() +"|");
+        }
+        //return ":)";
+    }
+
+    public static void event(){
+        String event;
+        int e = (int)(Math.random() * emp.size());
+        int a = (int)(Math.random() * animals.size());
+        int num = (int)(Math.random() * 3);
+
+        //random events
+        //OH nO! [] wwent on a rage! [] did not feed them!
+        //[]did not give [] a luxurious bath & spa, so []has plotted their demise!
+        //[role][name] has discovered evidence for/reports their suspicions of [] running an offshore drilling farm
+        if (num == 0){
+            System.out.println("[OH nO! "+ animals.get(a).getName() + " the " + animals.get(a).getSpecies() +" wwent on a rage! " + emp.get(e).getName() + " did not feed them!]");
+        }
+        else if (num == 1){
+            System.out.println("[OH nO! "+ emp.get(e).getName() + " did not give " + animals.get(a).getName() +  " a luxurious bath & spa, so the \n" + animals.get(a).getSpecies() + " has plotted their inevitable demise!]");
+        }
+        else if (num == 2){
+            System.out.println("[" + emp.get(e).getRole() + " " + emp.get(e).getName() + " has reported their discoveries and suspects that " + animals.get(a).getName() + " \nthe " + animals.get(a).getSpecies() + " is running an illegal offshore oil drilling company.]");
+        }
+    }
+
     public static void schedule(Employee employee, Animal animal){
 
     }
@@ -50,6 +78,7 @@ public class Zoo {
 
         Animal foot = new Animal("Foot", "Penguin-Rhinoceros", 5, " Rainforest", false);
         animals.add(foot);
+        animals.add(new Animal("Frank", "Duck-Giraffe Hybrid", 68, "Water", false));
         System.out.println(foot.feelingsNow());
         //System.out.println("ଲ(ⓛ ω ⓛ)ଲ");
 
@@ -62,6 +91,7 @@ public class Zoo {
         hire(new Employee("Joe",20000,"guide"));
         System.out.println(emp);
 
+        event();
 
     }
 }
