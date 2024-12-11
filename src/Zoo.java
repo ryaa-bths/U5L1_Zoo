@@ -38,10 +38,19 @@ public class Zoo {
     }
 
     public static void employedNames(){
+        String e = "|";
         for (Employee name:emp){
-            System.out.print(name.getName() +"|");
+            e = e + name.getName() +"|";
         }
-        //return ":)";
+        System.out.println(e);
+    }
+
+    public static void animalNames(){
+        String a = "|";
+        for (Animal name:animals){
+            a = a + name.getName() +"|";
+        }
+        System.out.println(a);
     }
 
     public static void event(){
@@ -49,24 +58,29 @@ public class Zoo {
         int e = (int)(Math.random() * emp.size());
         int a = (int)(Math.random() * animals.size());
         int num = (int)(Math.random() * 3);
+        String empName = emp.get(e).getName();
+        String job = emp.get(e).getRole();
+        String aniName = animals.get(a).getName();
+        String aniSpecies = animals.get(a).getSpecies();
 
         //random events
-        //OH nO! [] wwent on a rage! [] did not feed them!
-        //[]did not give [] a luxurious bath & spa, so []has plotted their demise!
-        //[role][name] has discovered evidence for/reports their suspicions of [] running an offshore drilling farm
         if (num == 0){
-            System.out.println("[OH nO! "+ animals.get(a).getName() + " the " + animals.get(a).getSpecies() +" wwent on a rage! " + emp.get(e).getName() + " did not feed them!]");
+            event = "[OH nO! "+ aniName + " the " + aniSpecies +" wwent on a rage! " + empName + " did not feed them!]";
         }
         else if (num == 1){
-            System.out.println("[OH nO! "+ emp.get(e).getName() + " did not give " + animals.get(a).getName() +  " a luxurious bath & spa, so the \n" + animals.get(a).getSpecies() + " has plotted their inevitable demise!]");
+            event = "[OH nO! "+ empName + " did not give " + aniName +  " a luxurious bath & spa, so the \n" + aniSpecies + " has plotted their inevitable demise!]";
         }
         else if (num == 2){
-            System.out.println("[" + emp.get(e).getRole() + " " + emp.get(e).getName() + " has reported their discoveries and suspects that " + animals.get(a).getName() + " \nthe " + animals.get(a).getSpecies() + " is running an illegal offshore oil drilling company.]");
+            event = "[" + job + " " + empName + " has reported their discoveries and suspects that " + aniName + " \nthe " + aniSpecies + " is running an illegal offshore oil drilling company.]";
         }
+        else{
+            event = "[ The end is nigh... -" + aniName + ", " + aniSpecies + "]";
+        }
+        System.out.println(event);
     }
 
     public static void schedule(Employee employee, Animal animal){
-
+        /* set lines here, is constructor. Might need to make new class*/
     }
 
 
@@ -89,9 +103,10 @@ public class Zoo {
 
         //Employee joe = new Employee("Joe",20000,"guide");
         hire(new Employee("Joe",20000,"guide"));
-        System.out.println(emp);
+        //System.out.println(emp);
 
         event();
+        //employedNames();
 
     }
 }

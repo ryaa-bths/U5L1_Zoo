@@ -1,6 +1,14 @@
 public class Animal {
 
-
+    //he added a static int variable for counting animal types, included variable in constructor tp count each new object
+    static int countAnimal = 0;
+    /* can make a static counter that exists outside any instanceof a class.
+     purpose, sometimes want to know how many aanimals have,
+     and using a stati cmethod can help determine that.
+     Static variable like lbueprint info.
+      Ifo class . Class doesn't refer to any indiv
+     sctatuc blueprint for any instance, indiv all types and versions
+    */
 
     //what information does each animal need?
     protected String name;
@@ -8,7 +16,7 @@ public class Animal {
     protected int age;
     protected String habitat;
     protected boolean alive;
-    protected boolean hungry;
+    //protected boolean hungry;
 
 
 
@@ -19,9 +27,10 @@ public class Animal {
         this.age = age;
         this.habitat = habitat;
         this.alive = alive;
+        countAnimal++;
     }
 
-
+/*
     public Animal(String name, String species, int age, String habitat, boolean alive, boolean hungry) {
         this.name = name;
         this.species = species;
@@ -30,6 +39,8 @@ public class Animal {
         this.alive = alive;
         this.hungry = hungry;
     }
+
+ */
     // one static var that serves all instances
     //is a Q or A about a whole class or obj, not any specific ones
     //global variable, for that classhaave diff banana obj, will update number of obj even if delete clas??
@@ -83,7 +94,7 @@ public class Animal {
 
     //isHungry vs. getHungry
 
-
+/*
     public boolean isHungry() {
         return hungry;
     }
@@ -95,7 +106,7 @@ public class Animal {
     public void feed(){
         this.hungry = true;
     }
-
+*/
     public boolean isAlive(){
         return alive;
     }

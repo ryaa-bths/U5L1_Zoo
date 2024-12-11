@@ -6,7 +6,7 @@ public class Spider extends Animal{
         this.habitat = habitat;
         this.alive = alive;
     }
-
+/*
     public Spider(String name, String species, int age, String habitat, boolean alive, boolean hungry) {
         this.name = name;
         this.species = species;
@@ -14,7 +14,7 @@ public class Spider extends Animal{
         this.habitat = habitat;
         this.alive = alive;
         this.hungry = hungry;
-    }
+    }*/
     public String makeNoise(){
         return "\\)}]()\\Oo\\/oO/()[{(/";
     }
