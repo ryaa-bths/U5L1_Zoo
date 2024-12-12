@@ -47,7 +47,6 @@ public class Animal {
 
 
 
-
     public Animal() {
         this.name = "Pauly";
         this.species = "Turtle";
@@ -87,6 +86,9 @@ public class Animal {
 
     public int setAge(int age){return this.age;}
 
+    public String getHabitat() {
+        return habitat;
+    }
 
     //getters = "looking up" animal information
 
@@ -124,15 +126,25 @@ public class Animal {
     }
 
     public String makeNoise(){
-        return "Mooo";
+        String n;
+        int i = (int)(Math.random() * 5);
+        if (i == 0){n = "qwuack waonkks Qwouank awnke quack";}
+        else if (i == 1){ n = "fbrrrrrrRRRrLllll";}
+        else{ n = "Mooo";}
+        return n;
     }
     public String reaction(){
         String s;
-        int x = (int)((Math.random())*5);
+        int x = (int)((Math.random())*10);
         if (x == 1){ s = "ଲ(ⓛ ω ⓛ)ଲ";}   //❀.❀  ˶⍤⃝˶  ꧁꧂
         else if (x == 0){ s = "⪩(ᐢᗜᐢ)⪨";}
         else if (x == 2){ s = "(･ - ･)??";}
         else if (x == 3){ s = "(o - ⃝  )" ;}
+        else if (x == 4){ s = "ptw! ( >=<)-≈  ◎==||::::::::::::>   (ง ◉ _ ◉)ง ";}
+        else if (x == 5){ s = "(◎ _ ◎)";}
+        else if (x == 6){ s = "(╭ರ_•́)";}
+        else if (x == 7){ s = "(๑•̀ᗝ•́)૭ ";}
+        //else if (x == ){ s = "";}
         else{ s = "(ꐦ･`▱´･)";}
         return s;
     }

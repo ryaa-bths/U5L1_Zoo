@@ -24,7 +24,7 @@ public class Zoo {
         emp.add(employee);
     }
 
-    public void intakeAnimal(Animal animal){
+    public static void intakeAnimal(Animal animal){
         animals.add(animal);
     }
 
@@ -60,8 +60,8 @@ public class Zoo {
     public static void event(){
         String event;
         int e = (int)(Math.random() * emp.size());
-        int a = (int)(Math.random() * animals.size());
-        int num = (int)(Math.random() * 3);
+        int a = (int)(Math.random() * animals.size()); //animalRandomNumberedIndex
+        int num = (int)(Math.random() * 10);
         String empName = emp.get(e).getName();
         String job = emp.get(e).getRole();
         String aniName = animals.get(a).getName();
@@ -75,8 +75,11 @@ public class Zoo {
             event = "[OH nO! "+ empName + " did not give " + aniName +  " a luxurious bath & spa, so the \n" + aniSpecies + " has plotted their inevitable demise!]";
         }
         else if (num == 2){
-            event = "[" + job + " " + empName + " has reported their discoveries and suspects that " + aniName + " \nthe " + aniSpecies + " is running an illegal offshore oil drilling company.]";
+            event = "[" + job + " " + empName + " has reported their suspicions and evidence that " + aniName + " \nthe " + aniSpecies + " is running an illegal offshore oil drilling company.]";
         }
+        else if (num == 3){ event = "[A " + job + " has turned in a report stating that they accidentally got a " + aniSpecies + " addicted to sugar.]";}
+        else if (num == 4){ event = "[ " + job + " " + empName +" says that the " + aniSpecies + " "+ aniName + " attacked and disconnected their ankles. \nThey are now gnawing on it inside their " + animals.get(a).getHabitat() + " habitat. \nThe employee says they would like a refund on that.]";}
+        //else if (num == ){ event = "[" + "]";}
         else{
             event = "[ The end is nigh... -" + aniName + ", " + aniSpecies + "]";
         }
@@ -97,14 +100,14 @@ public class Zoo {
         emp.add(bob);
 
 
-        Animal foot = new Animal("Foot", "Penguin-Rhinoceros", 5, " Rainforest", false);
+        Animal foot = new Animal("Foot", "Penguin-Rhinoceros Hybrid", 5, " Rainforest", false);
         animals.add(foot);
         animals.add(new Animal("Frank", "Duck-Giraffe Hybrid", 68, "Water", false));
         System.out.println(foot.feelingsNow());
         //System.out.println("ଲ(ⓛ ω ⓛ)ଲ");
-        Spider joe = new Spider("Joe", "Pelican Spider", 5, "Shoe", true);
+        Spider joe = new Spider("Squirrel", "Pelican Spider", 5, "Shoe", true);
         animals.add(joe);
-
+        animals.add(new Animal("Pachika", "Panda-Chinchilla-Cat Hybrid", 2000, "Penguin Terrarium", true));
 
         //Employee joe = new Employee("Joe",20000,"guide");
         hire(new Employee("Joe",20000,"guide"));

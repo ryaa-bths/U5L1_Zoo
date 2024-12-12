@@ -66,6 +66,8 @@ public class Employee {
         Employee test = new Employee();
         System.out.println(bob);
         System.out.println(test);
+
+        //System.out.println("/     \\\n\\◎ _ ◎/");
     }
     //
     //}
