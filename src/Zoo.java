@@ -17,6 +17,9 @@ public class Zoo {
     //put this in class, not in main
     static LinkedList<Employee> emp = new LinkedList<Employee>();   //employed
     static LinkedList<Animal> animals = new LinkedList<Animal>();
+
+    static int day = 0;
+
     public static void hire(Employee employee){
         emp.add(employee);
     }
@@ -37,6 +40,7 @@ public class Zoo {
         return emp;
     }
 
+    /*
     public static void employedNames(){
         String e = "|";
         for (Employee name:emp){
@@ -52,7 +56,7 @@ public class Zoo {
         }
         System.out.println(a);
     }
-
+*/
     public static void event(){
         String event;
         int e = (int)(Math.random() * emp.size());
@@ -81,13 +85,16 @@ public class Zoo {
 
     public static void schedule(Employee employee, Animal animal){
         /* set lines here, is constructor. Might need to make new class*/
+        /*public String schedule(<Employee> employed, animals){
+            String line1 = "6:00am  |" + emp.get(0).getName() + " \t|" + animals.get(0).getName();
+            System.out.println(line1);
+        }*/
     }
 
 
     public static void main(String[] args) {
         Employee bob = new Employee("Bob", 20000, "Duckkeeper");
         emp.add(bob);
-        System.out.println(emp.get(0).getName());
 
 
         Animal foot = new Animal("Foot", "Penguin-Rhinoceros", 5, " Rainforest", false);
@@ -95,18 +102,19 @@ public class Zoo {
         animals.add(new Animal("Frank", "Duck-Giraffe Hybrid", 68, "Water", false));
         System.out.println(foot.feelingsNow());
         //System.out.println("ଲ(ⓛ ω ⓛ)ଲ");
+        Spider joe = new Spider("Joe", "Pelican Spider", 5, "Shoe", true);
+        animals.add(joe);
 
-        //public String schedule(<Employee> employed, animals){
-            String line1 = "6:00am  |" + emp.get(0).getName() + " \t|" + animals.get(0).getName();
-            System.out.println(line1);
-        //}
 
         //Employee joe = new Employee("Joe",20000,"guide");
         hire(new Employee("Joe",20000,"guide"));
+        hire(new Employee("Turtle",20000,"Spa Master"));
         //System.out.println(emp);
 
         event();
         //employedNames();
+
+
 
     }
 }

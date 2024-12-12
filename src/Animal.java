@@ -27,7 +27,7 @@ public class Animal {
         this.age = age;
         this.habitat = habitat;
         this.alive = alive;
-        countAnimal++;
+        //countAnimal++;
     }
 
 /*
@@ -58,11 +58,13 @@ public class Animal {
     }
 
 
-
+//the muffin... It. won't. get. any. CLOSER!!
     public String toString(){
         return "Our animal " + this.name + " is currently alive?: " + alive;
     }
 
+
+    //parameter and default constructors
     public String getName() {
         return name;
     }
@@ -84,8 +86,6 @@ public class Animal {
     }
 
     public int setAge(int age){return this.age;}
-    //parameter and default constructors
-
 
 
     //getters = "looking up" animal information
@@ -111,7 +111,17 @@ public class Animal {
         return alive;
     }
 
+    public boolean resurrection(){
+        this.alive = true;
+        System.out.println("It...It's alive!!!");
+        return this.alive;
+    }
 
+    public boolean kill(){
+        this.alive = false;
+        System.out.println("It...WHAT HAVE YOU DONE??!");
+        return this.alive;
+    }
 
     public String makeNoise(){
         return "Mooo";
@@ -148,8 +158,9 @@ public class Animal {
         Animal foot = new Animal("Foot", "Penguin-Rhinoceros", 5, " Rainforest", false);
         System.out.println(foot);
         System.out.println(foot.makeNoise());
+        foot.resurrection();
 
-
+        frank.kill();
 
 
     }
