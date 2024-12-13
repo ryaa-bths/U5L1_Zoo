@@ -1,5 +1,5 @@
 import java.util.LinkedList;
-//import java.util.Scanner;
+import java.util.Scanner;
 
 public class Zoo {
     //store animals & employees
@@ -89,9 +89,21 @@ public class Zoo {
     public static void schedule(Employee employee, Animal animal){
         /* set lines here, is constructor. Might need to make new class*/
         /*public String schedule(<Employee> employed, animals){
-            String line1 = "6:00am  |" + emp.get(0).getName() + " \t|" + animals.get(0).getName();
+            String line = "6:00am  |" + emp.get(0).getName() + " \t|" + animals.get(0).getName();
             System.out.println(line1);
         }*/
+    }
+
+    public static void today(){
+        System.out.println("Day #" + day +":");
+        System.out.println("=======");
+        for (Animal animal:animals){
+            animal.status();
+            System.out.println("-------");
+        }
+
+
+        day++;
     }
 
 
@@ -104,19 +116,29 @@ public class Zoo {
         animals.add(foot);
         animals.add(new Animal("Frank", "Duck-Giraffe Hybrid", 68, "Water", false));
         System.out.println(foot.feelingsNow());
-        //System.out.println("ଲ(ⓛ ω ⓛ)ଲ");
         Spider joe = new Spider("Squirrel", "Pelican Spider", 5, "Shoe", true);
         animals.add(joe);
         animals.add(new Animal("Pachika", "Panda-Chinchilla-Cat Hybrid", 2000, "Penguin Terrarium", true));
-
+        animals.add(new Spider("Lori","Peacock Spider- Parakeet Hybrid",20,"Cafeteria Salad Bowl", false));
+        animals.add(new Animal("Fuu","Lion-Fish Hybrid",7,"Ice Tundra", false));
+        animals.add(new Animal("Thanksgiving Dinner","Headless Sea Chicken",5,"Underwater Cave", true));
+        animals.add(new Animal("Edgar","Damascus Goat",4,"Manager's Office/Desert", true));
+        //animals.add(new Animal("","",,"", false));
         //Employee joe = new Employee("Joe",20000,"guide");
         hire(new Employee("Joe",20000,"guide"));
         hire(new Employee("Turtle",20000,"Spa Master"));
+        hire(new Employee("Alex",20000,"Capitalism Overseer"));
+        hire(new Manager("Phil", 200000, 5));
+
+        //hire(new Employee("",,""));
         //System.out.println(emp);
 
         event();
-        //employedNames();
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("please input a name, species, age, place/setting and true/false");
+        Animal animal = scanner.nextLine();
+        //individualize it, so can reuse scnners for names or somehting
 
 
     }

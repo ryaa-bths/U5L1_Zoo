@@ -16,6 +16,10 @@ public class Animal {
     protected int age;
     protected String habitat;
     protected boolean alive;
+    protected int lives;        //counters
+    protected int dead;
+    protected int resurrect;
+    protected int kill;
     //protected boolean hungry;
 
 
@@ -59,7 +63,7 @@ public class Animal {
 
 //the muffin... It. won't. get. any. CLOSER!!
     public String toString(){
-        return "Our animal " + this.name + " is currently alive?: " + alive;
+        return "Our animal " + this.name + " is currently alive??: " + alive;
     }
 
 
@@ -90,6 +94,14 @@ public class Animal {
         return habitat;
     }
 
+    public int getLives(){ return this.lives;}
+
+    public int getDead(){ return this.dead;}
+
+    public int getResurrect(){ return this.resurrect;}
+
+    public int getKill(){ return this.kill;}
+
     //getters = "looking up" animal information
 
 
@@ -116,12 +128,18 @@ public class Animal {
     public boolean resurrection(){
         this.alive = true;
         System.out.println("It...It's alive!!!");
+        this.dead--;
+        this.lives++;
+        this.resurrect++;
         return this.alive;
     }
 
     public boolean kill(){
         this.alive = false;
         System.out.println("It...WHAT HAVE YOU DONE??!");
+        this.lives--;
+        this.dead++;
+        this.kill++;
         return this.alive;
     }
 
@@ -130,6 +148,11 @@ public class Animal {
         int i = (int)(Math.random() * 5);
         if (i == 0){n = "qwuack waonkks Qwouank awnke quack";}
         else if (i == 1){ n = "fbrrrrrrRRRrLllll";}
+        else if (i == 2){ n = "skkkkkkshhhhwwrl";}
+        else if (i == 3){ n = "SKREEEiii";}
+        else if (i == 4){ n = "ee";}
+        else if (i == 5){ n = "ark! rk! wRkIWantBloodARK! awrk!";}
+        else if (i == 6){ n = "wwwww sk ssk hhsshhh";}
         else{ n = "Mooo";}
         return n;
     }
@@ -153,7 +176,9 @@ public class Animal {
         return "Current expression of " + this.name + ":\t" + reaction();
     }
 
-
+    public String status(){
+        return "Name: " + this.name + "\nSpecies: " + this.species + "\nAge: " + this.age + "\nAlive: " +this.alive;
+    }
 
     //publicly accessible methods?
     public static void main(String[] args) {
