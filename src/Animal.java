@@ -1,7 +1,7 @@
 public class Animal {
 
     //he added a static int variable for counting animal types, included variable in constructor tp count each new object
-    static int countAnimal = 0;
+    //static int countAnimal = 0;
     /* can make a static counter that exists outside any instanceof a class.
      purpose, sometimes want to know how many aanimals have,
      and using a stati cmethod can help determine that.
@@ -16,10 +16,10 @@ public class Animal {
     protected int age;
     protected String habitat;
     protected boolean alive;
-    protected int lives;        //counters
-    protected int dead;
-    protected int resurrect;
-    protected int kill;
+    protected static int lives = 0;        //counters
+    protected static int dead = 0;
+    protected static int resurrect = 0;
+    protected static int kill = 0;
     //protected boolean hungry;
 
 
@@ -31,20 +31,17 @@ public class Animal {
         this.age = age;
         this.habitat = habitat;
         this.alive = alive;
+
+        if (isAlive()){ //if is alive == true
+            lives++;
+        }
+        else{
+            dead++;
+        }
         //countAnimal++;
     }
 
-/*
-    public Animal(String name, String species, int age, String habitat, boolean alive, boolean hungry) {
-        this.name = name;
-        this.species = species;
-        this.age = age;
-        this.habitat = habitat;
-        this.alive = alive;
-        this.hungry = hungry;
-    }
 
- */
     // one static var that serves all instances
     //is a Q or A about a whole class or obj, not any specific ones
     //global variable, for that classhaave diff banana obj, will update number of obj even if delete clas??
@@ -57,7 +54,7 @@ public class Animal {
         this.age = 5000;
         this.habitat = "Mars";
         this.alive = true;
-
+        lives++;
     }
 
 
@@ -91,16 +88,16 @@ public class Animal {
     public int setAge(int age){return this.age;}
 
     public String getHabitat() {
-        return habitat;
+        return this.habitat;
     }
 
-    public int getLives(){ return this.lives;}
+    public static int getLives(){ return lives;}   //static variable/instance variable, does not need a this. keyword because it does not apply to individuals
 
-    public int getDead(){ return this.dead;}
+    public int getDead(){ return dead;}
 
-    public int getResurrect(){ return this.resurrect;}
+    public int getResurrect(){ return resurrect;}
 
-    public int getKill(){ return this.kill;}
+    public int getKill(){ return kill;}
 
     //getters = "looking up" animal information
 
@@ -127,19 +124,19 @@ public class Animal {
 
     public boolean resurrection(){
         this.alive = true;
-        System.out.println("It...It's alive!!!");
-        this.dead--;
-        this.lives++;
-        this.resurrect++;
+        System.out.println("The " + this.species + "... It......It's alive!!!");
+        dead--;
+        lives++;
+        resurrect++;
         return this.alive;
     }
 
     public boolean kill(){
         this.alive = false;
-        System.out.println("It...WHAT HAVE YOU DONE??!");
-        this.lives--;
-        this.dead++;
-        this.kill++;
+        System.out.println("The " + this.species + "... It......WHAT HAVE YOU DONE??!");
+        lives--;
+        dead++;
+        kill++;
         return this.alive;
     }
 
@@ -158,15 +155,20 @@ public class Animal {
     }
     public String reaction(){
         String s;
-        int x = (int)((Math.random())*10);
+        int x = (int)((Math.random())*17);
         if (x == 1){ s = "ଲ(ⓛ ω ⓛ)ଲ";}   //❀.❀  ˶⍤⃝˶  ꧁꧂
         else if (x == 0){ s = "⪩(ᐢᗜᐢ)⪨";}
         else if (x == 2){ s = "(･ - ･)??";}
-        else if (x == 3){ s = "(o - ⃝  )" ;}
-        else if (x == 4){ s = "ptw! ( >=<)-≈  ◎==||::::::::::::>   (ง ◉ _ ◉)ง ";}
+        else if (x == 3){ s = "(o- ⃝  )" ;}
+        else if (x == 4){ s = "ptw! ( >=<)-≈  ◎==||::::::::::::>  Σ(°ロ°)";}
         else if (x == 5){ s = "(◎ _ ◎)";}
         else if (x == 6){ s = "(╭ರ_•́)";}
-        else if (x == 7){ s = "(๑•̀ᗝ•́)૭ ";}
+        else if (x == 7){ s = "(๑•̀ᗝ•́)૭";}
+        else if (x == 8){ s = "(◉ _ ◉) ";}
+        else if (x == 9){ s = "Σ(°ロ°)";}
+        else if (x == 10){ s = "(  -᷅ ⤙ -᷄ )=3";}
+        else if (x == 11){ s = "( •̀ ᴖ •́ )";}
+        else if (x == 12){ s = "(¬⤙¬ )";}
         //else if (x == ){ s = "";}
         else{ s = "(ꐦ･`▱´･)";}
         return s;
@@ -177,8 +179,12 @@ public class Animal {
     }
 
     public String status(){
-        return "Name: " + this.name + "\nSpecies: " + this.species + "\nAge: " + this.age + "\nAlive: " +this.alive;
+        return "Name: " + this.name + "\t| Species: " + this.species + "\t| Age: " + this.age + "\t| " +toString();
     }
+
+    public static String whoDied() { return "~ Total Animals...~\n|\tAlive: " + lives + "\tDead: " + dead;}
+
+    public static String messUpTracker(){ return "| \tTotal Resurrections: " + resurrect + "  Total Killed Under Care: "+ kill;}
 
     //publicly accessible methods?
     public static void main(String[] args) {
