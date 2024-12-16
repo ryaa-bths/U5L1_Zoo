@@ -185,7 +185,7 @@ public class Zoo {
         String habitat = scan.nextLine();
         boolean alive = scan.nextBoolean();
 
-        //individualize it, so can reuse scnners for names or somehting
+        //individualize it, so can reuse scnners for names or something
 */
         schedule();
         today();
