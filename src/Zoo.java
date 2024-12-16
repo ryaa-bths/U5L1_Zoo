@@ -59,7 +59,6 @@ public class Zoo {
         String job = emp.get(e).getRole();
         String aniName = animals.get(a).getName();
         String aniSpecies = animals.get(a).getSpecies();
-
         //random events
         if (num == 0){
             event = "\t[ OH nO! "+ aniName + " the " + aniSpecies +" wwent on a rage! " + empName + " did not feed them!]";
@@ -73,11 +72,24 @@ public class Zoo {
         else if (num == 3){ event = "\t[ A " + job + " has turned in a report stating that they accidentally got a " + aniSpecies + " addicted to sugar.]";}
         else if (num == 4){ event = "\t[ " + job + " " + empName +" says that the " + aniSpecies + " "+ aniName + " attacked and disconnected their ankles. \n\tThey are now gnawing on it inside their " + animals.get(a).getHabitat() + " habitat. \n\tThe employee says they would like a refund on that.]";}
         else if (num == 5){ event = "\t[ " + empName + " had been observing " + aniName +",  and has created a doodle on their report with the following dialogue for them: \n\t \" The muffin... It never comes any closer, why, why, why... it...looks SO delicious! AAA\n\t\t*pounces*\n\tCurses! It has escaped yet again! I, " + aniName + ", The Great " + aniSpecies +", refuse to be defeated by this puny prey!\"]";}
+        else if (num == 6){ event = "\t[ "  + job + " " + empName + " has reported that their escape from " + aniSpecies + " fluff ]";}
+        else if (num == 7){ event = "\t[ " + aniName + " the " + aniSpecies + " has spontaneously combusted! ]";}
+        else if (num == 8){ event = "\t[ " + aniName + " has decided that they will become the Great Christmas " + aniSpecies + ",\n\t and promptly ambushed " + empName + " and gave them their ankles as a gift.]";}
         //else if (num == ){ event = "\t[ " + "]";}
         else{
             event = "\t[ The end is nigh... -" + aniName + ", " + aniSpecies + "]";
         }
         System.out.println(event);
+    }
+
+    public static void toKillOrNot(Animal animal){
+        int r = (int)(Math.random()*3);
+        if (!(animal.isAlive()) && r ==0){  //animal is currently dead/false, random number will resurrect it
+            animal.resurrection();
+        }
+        else if (animal.isAlive() && r == 0){  //animal is currently alive, random number decides to kill it
+            animal.kill();
+        }
     }
 
     public static void schedule(){
@@ -113,8 +125,8 @@ public class Zoo {
     }
 
     public static void today(){
-        System.out.println("Day #" + day +":");
-        System.out.println("=======");
+        System.out.println("\t\t\t\t~~~~~Day #" + day +": ~~~~~");
+        System.out.println("==========");
         System.out.println();
         for (int i = 0; i < 2;i++) {  //maybe not all of them. probably a random one
             Animal animal = animals.get((int)(Math.random() * animals.size()));
@@ -122,21 +134,19 @@ public class Zoo {
             System.out.println(animal.feelingsNow());
             System.out.println(animal.makeNoise());
             //System.out.println(animal.toString());
+            Zoo.toKillOrNot(animal);
 
-            int r = (int)(Math.random()*5);
-            if (!(animal.isAlive()) && r ==0){  //animal is currently dead/false, random number will resurrect it
-                animal.resurrection();
-            }
-            else if (animal.isAlive() && r == 0){  //animal is currently alive, random number decides to kill it
-                animal.kill();
-            }
             System.out.println("-------");
         }
+        Animal animal = animals.get((int)(Math.random() * animals.size()));
+        Zoo.toKillOrNot(animal);
+        System.out.println("-------");
         event();
         System.out.println("-------");
         System.out.println("\t"+Animal.whoDied());
         System.out.println("" + Animal.messUpTracker());
         System.out.println("=======");
+        System.out.println();
         day++;
 
     }
@@ -187,7 +197,9 @@ public class Zoo {
 
         //individualize it, so can reuse scnners for names or something
 */
-        schedule();
+        schedule();  //can be separated
+        today();
+        today();
         today();
 
     }

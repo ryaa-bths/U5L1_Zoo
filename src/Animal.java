@@ -182,9 +182,9 @@ public class Animal {
         return "Name: " + this.name + "\t| Species: " + this.species + "\t| Age: " + this.age + "\t| " +toString();
     }
 
-    public static String whoDied() { return "~ Total Animals...~\n|\tAlive: " + lives + "\tDead: " + dead;}
+    public static String whoDied() { return "~ Total Animals...~\n|\tAlive: " + lives + "\t\t\t\t\tDead: " + dead;}
 
-    public static String messUpTracker(){ return "| \tTotal Resurrections: " + resurrect + "  Total Killed Under Care: "+ kill;}
+    public static String messUpTracker(){ return "| \tTotal Resurrections: " + resurrect + "\t\tTotal Killed Under Care: "+ kill;}
 
     //publicly accessible methods?
     public static void main(String[] args) {
