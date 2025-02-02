@@ -36,6 +36,10 @@ public class Zoo {
         animals.remove(animal);
     }
 
+    public static int getDay(){
+        return day;
+    }
+
     public static LinkedList<Employee> getEmployed() {
         return emp;
     }
@@ -104,12 +108,15 @@ public class Zoo {
         System.out.println("~~~~~~~");
         System.out.println(" Assigned animals to Employees: ");
         //System.out.println("~~~");
-        for (Employee person:emp){  //maybe animals in schedule could be in rows, matrix style
-            String line = "| " + person.getRole() + " " +  person.getName() + " : \t";
-            if (!(person.getRole().indexOf("keeper")==-1)){
+        for (Employee person:emp){  //maybe animals in schedule could be in rows, matrix style. How to avoid managers.
+            String line = "| " + person.getRole() + " " +  person.getName() + " : \t";   //is the row, style |emp: animal, animal|
+            if (!(person.getRole().indexOf("keeper")==-1) || !(person.getRole().equals("Manager"))){  //trying to avoid manager
                 if (p+i < animals.size()) {//can assign a certain number of animals to each emp without going out of bounds
-                    for (int j = 0; j <= p; j++) {
-                        line += animals.get(i).getName() + ", ";
+                    for (int j = 0; j <= p; j++) {      //creates a row of animals for employee.
+                        line += animals.get(i).getName();
+                        if (j != p){
+                            line +=", ";
+                        }
                         i++;
                     }
                 }
@@ -117,6 +124,9 @@ public class Zoo {
                     line += animals.get(i).getName();
                     i++;
                 }
+            }
+            else{
+                line += ("\"[Insert employee names]\"");
             }
             line += "|";
             System.out.println(line);
@@ -151,6 +161,22 @@ public class Zoo {
 
     }
 
+    public static Animal create(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("please input a [name], [species], [age], [habitat] and either [true] or [false]");
+        System.out.print("name: ");
+        String name = scan.nextLine();
+        System.out.print("species: ");
+        String species = scan.nextLine();
+        System.out.print("age: ");
+        int age = Integer.parseInt(scan.nextLine());
+        System.out.print("habitat: ");
+        String habitat = scan.nextLine();
+        System.out.print("true/false: ");
+        boolean alive = scan.nextBoolean();
+        return  new Animal(name, species, age, habitat, alive);
+        //return (scan.nextLine(), scan.nextLine(), scan.nextInt(), scan.nextLine(), scan.nextBoolean());
+    }
 
     public static void main(String[] args) {
         Employee bob = new Employee("Bob", 20000, "Duckkeeper");
@@ -171,7 +197,7 @@ public class Zoo {
         animals.add(new Animal("Roe","Capybara-Dog-Chicken Hybrid", 17,"Paris Ocean Forest", true));
         animals.add(new Animal("Ben","Goat-Bird Hybrid",84,"Coral Reef", false));
         animals.add(new Animal("Fluffy","Giant Mantis-Tiger-Carnivorous Caterpillar Hybrid", 57,"Nightmare Forest", true));
-        animals.add(new Animal());
+        intakeAnimal(new Animal());
         //animals.add(new Animal("","",,"", false));
         //Employee joe = new Employee("Joe",20000,"guide");
         hire(new Employee("Joe",20000,"guide"));
@@ -188,7 +214,7 @@ public class Zoo {
         /*
     //can be converted into a method for user input animals
         Scanner scan = new Scanner(System.in);
-        System.out.println("please input a [name], [species], [age], [place/setting] and either [true] or [false]");
+        System.out.println("please input a [name], [species], [age], [place/setting] and either [true] or [false]. Press (enter) for each entry.");
         String aName = scan.nextLine();
         String aSpecies = scan.nextLine();
         int age = scan.nextInt();
@@ -197,10 +223,20 @@ public class Zoo {
 
         //individualize it, so can reuse scnners for names or something
 */
+
+        intakeAnimal(Zoo.create());
+        System.out.println();
         schedule();  //can be separated
-        today();
-        today();
-        today();
+        System.out.println();
+        //today();
+        //System.out.print("You have " + Animal.getCount() + " animalks");
+        Scanner scan = new Scanner(System.in);
+        System.out.println("How many days should the zoo be run for?");
+        int term = scan.nextInt();
+        while (getDay() < term){
+            today();
+            scan.nextLine();
+        }
 
     }
 }

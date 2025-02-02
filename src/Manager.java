@@ -12,6 +12,10 @@ public class Manager extends Employee{
         this.directReports = directReports;
     }
 
+    public int getDirectReports() {
+        return directReports;
+    }
+
     public String toString() {
         return this.name + " has " + this.directReports + " people working for them.";
     }

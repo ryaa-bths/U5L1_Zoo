@@ -16,10 +16,14 @@ public class Animal {
     protected int age;
     protected String habitat;
     protected boolean alive;
+
     protected static int lives = 0;        //counters
     protected static int dead = 0;
     protected static int resurrect = 0;
     protected static int kill = 0;
+
+
+    protected static int countAnimal = 0;
     //protected boolean hungry;
 
 
@@ -38,7 +42,7 @@ public class Animal {
         else{
             dead++;
         }
-        //countAnimal++;
+        countAnimal++;
     }
 
 
@@ -55,6 +59,7 @@ public class Animal {
         this.habitat = "Mars";
         this.alive = true;
         lives++;
+        countAnimal++;
     }
 
 
@@ -98,8 +103,17 @@ public class Animal {
     public int getResurrect(){ return resurrect;}
 
     public int getKill(){ return kill;}
+/*
+    public static int getCount() {
+        return countAnimal;
+    }
 
-    //getters = "looking up" animal information
+    public static void setCount(int count) {
+        Animal.countAnimal = count;
+    }
+  */
+
+    ///getters = "looking up" animal information
 
 
 
@@ -194,8 +208,6 @@ public class Animal {
         System.out.println(deflt);
         System.out.println(frank.makeNoise());
         System.out.println(deflt.makeNoise());
-
-
 
 
         Animal foot = new Animal("Foot", "Penguin-Rhinoceros", 5, " Rainforest", false);
