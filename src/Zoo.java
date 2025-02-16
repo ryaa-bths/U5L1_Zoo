@@ -63,6 +63,7 @@ public class Zoo {
         String job = emp.get(e).getRole();
         String aniName = animals.get(a).getName();
         String aniSpecies = animals.get(a).getSpecies();
+
         //random events
         if (num == 0){
             event = "\t[ OH nO! "+ aniName + " the " + aniSpecies +" wwent on a rage! " + empName + " did not feed them!]";
@@ -84,6 +85,28 @@ public class Zoo {
             event = "\t[ The end is nigh... -" + aniName + ", " + aniSpecies + "]";
         }
         System.out.println(event);
+        // detour explore other ways to program event; what would be efficient? To be discovered.
+        /*
+        String[] events = {
+                "\t[ OH nO! "+ aniName + " the " + aniSpecies +" wwent on a rage! " + empName + " did not feed them!]",
+                "\t[ OH nO! "+ empName + " did not give " + aniName +  " a luxurious bath & spa, so the \n\t" + aniSpecies
+                        + " has plotted their inevitable demise!]",
+                "\t[ " + job + " " + empName + " has reported their suspicions and evidence that " + aniName + " \n\tthe "
+                        + aniSpecies + " is running an illegal offshore oil drilling company.]",
+                "\t[ A " + job + " has turned in a report stating that they accidentally got a " + aniSpecies + " addicted to sugar.]",
+                "\t[ " + job + " " + empName +" says that the " + aniSpecies + " "+ aniName + " attacked and disconnected their ankles. \n\tThey are now gnawing on it inside their "
+                        + animals.get(a).getHabitat() + " habitat. \n\tThe employee says they would like a refund on that.]",
+                "\t[ " + empName + " had been observing " + aniName +",  and has created a doodle on their report with the following dialogue for them: "
+                        + "\n\t \" The muffin... It never comes any closer, why, why, why... it...looks SO delicious! AAA\n\t\t*pounces*\n\tCurses! It has escaped yet again! I, "
+                        + aniName + ", The Great " + aniSpecies +", refuse to be defeated by this puny prey!\"]",
+                "\t[ "  + job + " " + empName + " has reported that their escape from " + aniSpecies + " fluff ]",
+                "\t[ " + aniName + " the " + aniSpecies + " has spontaneously combusted! ]",
+                "\t[ " + aniName + " has decided that they will become the Great Christmas " + aniSpecies + ",\n\t and promptly ambushed "
+                        + empName + " and gave them their ankles as a gift.]",
+                "\t[ The end is nigh... -" + aniName + ", " + aniSpecies + "]"
+        };
+        System.out.println("\t[ " + events[num] + "]");
+        */
     }
 
     public static void toKillOrNot(Animal animal){
